@@ -24,6 +24,8 @@ function MainPage() {
       <Text>{nano?.getAddress()}</Text>
       <Text>{nano?.getAuthToken()}</Text>
       <Button title="Pair" onPress={onPair} />
+      <Button title="On" onPress={() => nano?.setLightsState(true)} />
+      <Button title="Off" onPress={() => nano?.setLightsState(false)} />
     </View>
   );
 }
