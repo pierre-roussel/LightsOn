@@ -4,8 +4,9 @@ import { Button, StyleSheet, Text, View } from "react-native";
 
 // Internal
 import { CtxNanoleaf } from "../../components/CtxNanoleaf";
+import { Switch } from "../../components/Switch/Switch";
 
-function MainPage() {
+const MainPage = () => {
   // Hooks
   const nano = useContext(CtxNanoleaf);
 
@@ -23,12 +24,10 @@ function MainPage() {
       <Text>Main Page</Text>
       <Text>{nano?.getAddress()}</Text>
       <Text>{nano?.getAuthToken()}</Text>
-      <Button title="Pair" onPress={onPair} />
-      <Button title="On" onPress={() => nano?.setLightsState(true)} />
-      <Button title="Off" onPress={() => nano?.setLightsState(false)} />
+      <Switch />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
