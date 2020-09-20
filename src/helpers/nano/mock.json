@@ -1,0 +1,80 @@
+{
+  "name": "Nanoleaf Light Panels 58:1f:4a",
+  "serialNo": "S19432A2297",
+  "manufacturer": "Nanoleaf",
+  "firmwareVersion": "3.3.4",
+  "hardwareVersion": "1.6-2",
+  "model": "NL22",
+  "cloudHash": {},
+  "discovery": {},
+  "effects": {
+    "effectsList": [
+      "Beach Waves",
+      "Bedtime",
+      "Color Burst",
+      "Fireplace",
+      "Fireworks",
+      "Flame",
+      "Flames",
+      "Forest",
+      "Inner Peace",
+      "Meteor Shower",
+      "Nemo",
+      "Northern Lights",
+      "Ocean",
+      "Paint Splatter",
+      "Pulse Pop Beats",
+      "Purple Rain",
+      "Rhythmic Northern Lights",
+      "Ripple",
+      "Romantic",
+      "Snowfall",
+      "Sound Bar",
+      "Streaking Notes",
+      "Vibrant Sunrise",
+      "Vintage Modern",
+      "moonlight",
+      "Vert Blanc",
+      "Retro"
+    ],
+    "select": "Retro"
+  },
+  "firmwareUpgrade": {},
+  "panelLayout": {
+    "globalOrientation": { "value": 44, "max": 360, "min": 0 },
+    "layout": {
+      "numPanels": 9,
+      "sideLength": 150,
+      "positionData": [
+        { "panelId": 95, "x": 449, "y": 259, "o": 180, "shapeType": 0 },
+        { "panelId": 158, "x": 374, "y": 216, "o": 0, "shapeType": 0 },
+        { "panelId": 105, "x": 299, "y": 259, "o": 300, "shapeType": 0 },
+        { "panelId": 226, "x": 224, "y": 216, "o": 240, "shapeType": 0 },
+        { "panelId": 197, "x": 224, "y": 129, "o": 60, "shapeType": 0 },
+        { "panelId": 204, "x": 149, "y": 86, "o": 240, "shapeType": 0 },
+        { "panelId": 37, "x": 74, "y": 129, "o": 60, "shapeType": 0 },
+        { "panelId": 198, "x": 0, "y": 86, "o": 0, "shapeType": 0 },
+        { "panelId": 160, "x": 0, "y": 0, "o": 60, "shapeType": 0 }
+      ]
+    }
+  },
+  "rhythm": {
+    "auxAvailable": false,
+    "firmwareVersion": "2.4.3",
+    "hardwareVersion": "2.0",
+    "rhythmActive": false,
+    "rhythmConnected": true,
+    "rhythmId": 92,
+    "rhythmMode": 0,
+    "rhythmPos": { "x": 374.9949212219226, "y": 129.8973649840835, "o": 300.0 }
+  },
+  "schedules": {},
+  "state": {
+    "brightness": { "value": 100, "max": 100, "min": 0 },
+    "colorMode": "effect",
+    "ct": { "value": 4000, "max": 6500, "min": 1200 },
+    "hue": { "value": 0, "max": 360, "min": 0 },
+    "on": { "value": true },
+    "sat": { "value": 0, "max": 100, "min": 0 }
+  }
+}
