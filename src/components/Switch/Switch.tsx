@@ -1,10 +1,10 @@
 // Vendor
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 // Internal
-import { CtxNanoleaf } from "../../components/CtxNanoleaf";
-import { CtxNanoleafState } from "../CtxNanoleafState/CtxNanoleafState";
+import { CtxNanoleaf } from "../../contexts/CtxNanoleaf";
+import { CtxNanoleafState } from "../../contexts/CtxNanoleafState";
 import { selectLightOnState } from "../../selectors";
 import {
   LIGHT_OFF_SHADE,
@@ -15,7 +15,6 @@ export interface SwitchProps {}
 
 const Switch = (_props: SwitchProps) => {
   // Hooks
-  const fetched = useRef(false);
   const nano = useContext(CtxNanoleaf);
   const nanoState = useContext(CtxNanoleafState);
 
@@ -24,11 +23,14 @@ const Switch = (_props: SwitchProps) => {
 
   const styles = StyleSheet.create({
     container: {
-      borderRadius: 50,
-      padding: "15%",
-      backgroundColor: currentLightState ? LIGHT_OFF_SHADE : LIGHT_ON_SHADE,
       alignItems: "center",
+      backgroundColor: currentLightState ? LIGHT_OFF_SHADE : LIGHT_ON_SHADE,
+      borderRadius: 50,
       justifyContent: "center",
+      marginTop: "1%",
+      marginBottom: "1%",
+      padding: "10%",
+      minWidth: "65%",
     },
   });
 
@@ -46,7 +48,7 @@ const Switch = (_props: SwitchProps) => {
   return (
     <View onTouchStart={onSetLight} style={styles.container}>
       <Text style={{ color: currentLightState ? "#fff" : "#000" }}>
-        Turn {currentLightState ? "off" : "on"}{" "}
+        Turn {currentLightState ? "off" : "on"} Nanoleaf
       </Text>
     </View>
   );

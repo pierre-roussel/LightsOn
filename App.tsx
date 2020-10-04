@@ -2,11 +2,11 @@
 import React from "react";
 
 // Internal
-import { CtxNanoleafProvider } from "./src/components/CtxNanoleaf";
+import { CtxNanoleafProvider } from "./src/contexts/CtxNanoleaf";
 import {
   CtxNanoleafStateProvider,
   defaultValue,
-} from "./src/components/CtxNanoleafState";
+} from "./src/contexts/CtxNanoleafState";
 import { MainPage } from "./src/pages/MainPage";
 import { NanoLeaf } from "./src/helpers/nano/nanoleaf";
 

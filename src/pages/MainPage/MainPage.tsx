@@ -1,22 +1,19 @@
 // Vendor
 import React, { useContext, useRef, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 // Internal
-import { Spring, animated } from "react-spring/renderprops";
-import { CtxNanoleaf } from "../../components/CtxNanoleaf";
-import { CtxNanoleafState } from "../../components/CtxNanoleafState/CtxNanoleafState";
+import { CtxNanoleaf } from "../../contexts/CtxNanoleaf";
+import { CtxNanoleafState } from "../../contexts/CtxNanoleafState";
+import { InfoBox } from "../../components/InfoBox";
 import { selectLightOnState } from "../../selectors";
-import { Switch } from "../../components/Switch/Switch";
+import { Switch } from "../../components/Switch";
 import {
   LIGHT_ON_SHADE,
   LIGHT_OFF_SHADE,
   CONNECTION_ERROR_SHADE,
   WAITING_FOR_RESPONSE,
 } from "./constants";
-import { useSpring } from "react-spring";
-
-const AnimatedView = animated(View);
 
 const MainPage = () => {
   // Hooks
@@ -28,20 +25,6 @@ const MainPage = () => {
   // Setup
   const currentLightState = selectLightOnState(nanoState.state);
 
-  const styles = {
-    container: {
-      flex: 1,
-      alignItems: "center",
-      justifyContent: "center",
-    },
-  };
-
-  const animatedStyles = useSpring({
-    ...styles.container,
-    backgroundColor: currentLightState ? LIGHT_ON_SHADE : LIGHT_OFF_SHADE,
-    color: currentLightState ? "#008" : "#fff",
-  });
-
   // Handlers
   const getBackgroundColor = () => {
     if (!fetched) return WAITING_FOR_RESPONSE;
@@ -49,6 +32,7 @@ const MainPage = () => {
 
     return currentLightState ? LIGHT_ON_SHADE : LIGHT_OFF_SHADE;
   };
+
   const onPair = () => {
     try {
       nano?.pair();
@@ -56,6 +40,16 @@ const MainPage = () => {
       console.log(e);
     }
   };
+
+  // Styles
+  const styles = StyleSheet.create({
+    main: {
+      flex: 1,
+      alignItems: "center",
+      backgroundColor: getBackgroundColor(),
+      justifyContent: "center",
+    },
+  });
 
   // useEffect
   React.useEffect(() => {
@@ -69,22 +63,10 @@ const MainPage = () => {
   }, []);
 
   return (
-    <Spring
-      native
-      to={{
-        ...styles.container,
-        backgroundColor: getBackgroundColor(),
-      }}
-    >
-      {(props) => (
-        <AnimatedView style={props}>
-          <Text>Main Page</Text>
-          <Text>{nano?.getAddress()}</Text>
-          <Text>{nano?.getAuthToken()}</Text>
-          <Switch />
-        </AnimatedView>
-      )}
-    </Spring>
+    <View style={styles.main}>
+      <Switch />
+      <InfoBox />
+    </View>
   );
 };
 
