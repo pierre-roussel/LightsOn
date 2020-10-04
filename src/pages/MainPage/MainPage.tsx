@@ -14,7 +14,6 @@ import {
   CONNECTION_ERROR_SHADE,
   WAITING_FOR_RESPONSE,
 } from "./constants";
-import { useSpring } from "react-spring";
 
 const AnimatedView = animated(View);
 
@@ -36,12 +35,6 @@ const MainPage = () => {
     },
   };
 
-  const animatedStyles = useSpring({
-    ...styles.container,
-    backgroundColor: currentLightState ? LIGHT_ON_SHADE : LIGHT_OFF_SHADE,
-    color: currentLightState ? "#008" : "#fff",
-  });
-
   // Handlers
   const getBackgroundColor = () => {
     if (!fetched) return WAITING_FOR_RESPONSE;
@@ -49,6 +42,7 @@ const MainPage = () => {
 
     return currentLightState ? LIGHT_ON_SHADE : LIGHT_OFF_SHADE;
   };
+
   const onPair = () => {
     try {
       nano?.pair();
@@ -67,6 +61,9 @@ const MainPage = () => {
       });
     }
   }, []);
+
+  console.log(currentLightState);
+  console.log(getBackgroundColor());
 
   return (
     <Spring
